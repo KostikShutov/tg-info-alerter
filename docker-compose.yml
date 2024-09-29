@@ -1,0 +1,12 @@
+services:
+  python-alerter:
+    build: .
+    image: python-alerter
+    container_name: python-alerter-container
+    tty: true
+    privileged: true
+    volumes:
+      - ".:/code"
+    working_dir: /code
+    environment:
+      PYTHONPATH: /code
