@@ -1,3 +1,4 @@
+import os
 import psutil
 import requests
 from dotenv import dotenv_values
@@ -29,10 +30,11 @@ def get_message() -> str:
 
     return message
 
+directory: str = os.path.dirname(os.path.realpath(__file__))
 
 env: dict = merge_envs(
-    base=dotenv_values('.env'),
-    override=dotenv_values('.env.local'),
+    base=dotenv_values(directory + '/.env'),
+    override=dotenv_values(directory + '/.env.local'),
 )
 
 token: str = env['TOKEN']
