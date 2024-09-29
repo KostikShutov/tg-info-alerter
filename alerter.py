@@ -11,7 +11,8 @@ def merge_envs(base: dict, override: dict) -> dict:
 
 
 def get_message() -> str:
-    message: str = ''
+    ip: str = requests.get('https://api.ipify.org').content.decode('utf8')
+    message: str = 'My public IP address is: {}'.format(ip) + '\n\n'
     temperatures: dict = psutil.sensors_temperatures()
 
     for name, entries in temperatures.items():
