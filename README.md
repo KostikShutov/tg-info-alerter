@@ -6,7 +6,7 @@ Install requirements:
 pip install -r requirements.txt
 ```
 
-Run:
+Configure `.env` or create `.env.local` and run:
 
 ```bash
 python alerter.py
@@ -15,5 +15,5 @@ python alerter.py
 Crontab:
 
 ```bash
-*/10 * * * * /usr/bin/python3 /path/to/alerter.py > /tmp/alerter.log
+* * * * * /usr/bin/python3 /path/to/alerter.py > /path/to/alerter.log
 ```
