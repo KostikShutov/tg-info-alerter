@@ -32,8 +32,8 @@ def get_message() -> str:
 
     message += 'CPU usage is: ' + str(psutil.cpu_percent(4)) + '% / 100%\n'
     message += 'RAM memory % used: ' + str(psutil.virtual_memory()[2]) + '% / 100%\n'
-    message += ('RAM memory GB used: ' + str(psutil.virtual_memory()[3] / 1_000_000_000)
-                + 'GB / ' + str(psutil.virtual_memory().total / 1_000_000_000)) + 'GB'
+    message += ('RAM memory GB used: ' + str(round(psutil.virtual_memory()[3] / 1_000_000_000, 2))
+                + 'GB / ' + str(round(psutil.virtual_memory().total / 1_000_000_000, 2))) + 'GB'
 
     return message
 
