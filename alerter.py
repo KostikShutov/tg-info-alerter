@@ -30,7 +30,13 @@ def get_message() -> str:
 
         message += '\n'
 
+    message += 'CPU usage is: ' + str(psutil.cpu_percent(4)) + '% / 100%\n'
+    message += 'RAM memory % used: ' + str(psutil.virtual_memory()[2]) + '% / 100%\n'
+    message += ('RAM memory GB used: ' + str(psutil.virtual_memory()[3] / 1_000_000_000)
+                + 'GB / ' + str(psutil.virtual_memory().total / 1_000_000_000)) + 'GB'
+
     return message
+
 
 directory: str = os.path.dirname(os.path.realpath(__file__))
 
